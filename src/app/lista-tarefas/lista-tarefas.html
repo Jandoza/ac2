@@ -1,0 +1,26 @@
+<h2>Lista de Tarefas</h2>
+
+<p><strong>Total de tarefas: {{ contadorTarefas }}</strong></p>
+
+<a routerLink="/cadastrar">Voltar ao cadastro</a>
+
+@if (tarefas.length === 0) {
+<p><em>Nenhuma tarefa cadastrada.</em></p>
+} @else {
+<ul>
+    @for (tarefa of tarefas; track trackById) {
+    <li>
+        <strong [style.textDecoration]="tarefa.concluida ? 'line-through' : 'none'">
+            {{ tarefa.titulo }}
+        </strong>
+        @if (tarefa.descricao) {
+        <small> — {{ tarefa.descricao }}</small>
+        }
+        <button (click)="concluir(tarefa.id)">
+            {{ tarefa.concluida ? 'Desmarcar Concluída' : 'Concluir' }}
+        </button>
+        <button (click)="remover(tarefa.id)">Remover</button>
+    </li>
+    }
+</ul>
+}

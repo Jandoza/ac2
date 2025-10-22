@@ -1,0 +1,14 @@
+<h2>Cadastrar Tarefa</h2>
+
+<form (ngSubmit)="cadastrar()" #f="ngForm">
+  <label>Título</label>
+  <input name="titulo" [(ngModel)]="titulo" required />
+  <br />
+
+  <label>Descrição</label>
+  <textarea name="descricao" [(ngModel)]="descricao" rows="3"></textarea>
+  <br />   
+
+  <button type="submit">Cadastrar</button>
+  <a routerLink="/lista">Ir para a lista</a>
+</form>
